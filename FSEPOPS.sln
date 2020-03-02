@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{923A4963-499D-4C07-8653-D00FFE2A5551}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{6C1E9217-F89E-45FF-A5E3-591EE6DCEF2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POPSAPI", "src\POPSAPI\POPSAPI.csproj", "{2538F2A7-F660-425D-AA93-B7E052B120F5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{7AD989D0-AA00-4764-BB49-4CCAA784F963}"
+	ProjectSection(SolutionItems) = preProject
+		DbScripts.sql = DbScripts.sql
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2538F2A7-F660-425D-AA93-B7E052B120F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2538F2A7-F660-425D-AA93-B7E052B120F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2538F2A7-F660-425D-AA93-B7E052B120F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2538F2A7-F660-425D-AA93-B7E052B120F5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2538F2A7-F660-425D-AA93-B7E052B120F5} = {923A4963-499D-4C07-8653-D00FFE2A5551}
+		{7AD989D0-AA00-4764-BB49-4CCAA784F963} = {923A4963-499D-4C07-8653-D00FFE2A5551}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {05076154-2281-4238-938E-33CBCDFED804}
+	EndGlobalSection
+EndGlobal
