@@ -26,6 +26,7 @@ namespace POPSAPI.Model
             modelBuilder.Entity<Supplier>()
                 .HasKey(suppl => suppl.SupplierNumber)
                 .HasName("suppl_primary_key");
+            
             modelBuilder.Entity<PoMaster>()
                         .HasKey(pom => pom.PoNumber)
                         .HasName("pom_primary_key");
