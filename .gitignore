@@ -5,3 +5,4 @@
 /.vs
 /src/POPSAPI/bin/Debug/netcoreapp3.1
 /src/POPSAPI/obj
+/src/POPSAPI/POPSAPI.csproj.user

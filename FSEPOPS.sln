@@ -7,11 +7,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{923A4963-499
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{6C1E9217-F89E-45FF-A5E3-591EE6DCEF2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POPSAPI", "src\POPSAPI\POPSAPI.csproj", "{2538F2A7-F660-425D-AA93-B7E052B120F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "POPSAPI", "src\POPSAPI\POPSAPI.csproj", "{2538F2A7-F660-425D-AA93-B7E052B120F5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{7AD989D0-AA00-4764-BB49-4CCAA784F963}"
 	ProjectSection(SolutionItems) = preProject
-		DbScripts.sql = DbScripts.sql
+		MIgrationCommand.cmd = MIgrationCommand.cmd
+		ResultSQL.sql = ResultSQL.sql
 	EndProjectSection
 EndProject
 Global

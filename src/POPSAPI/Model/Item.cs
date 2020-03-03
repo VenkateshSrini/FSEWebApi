@@ -13,7 +13,7 @@ namespace POPSAPI.Model
         [Column("ITCODE", TypeName ="CHAR(4)")]
         public string ItemCode { get; set; }
         [Required]
-        [Column("ITDESC", TypeName ="VARCHR(15)")]
+        [Column("ITDESC", TypeName ="VARCHAR(15)")]
         public string ItemDescription { get; set; }
         [Column("ITRATE", TypeName ="Money")]
         public double ItemRate { get; set; }

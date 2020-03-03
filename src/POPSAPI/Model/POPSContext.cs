@@ -12,6 +12,11 @@ namespace POPSAPI.Model
         public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<PoMaster> PoMasters { get; set; }
         public DbSet<PoDetail> PoDetails { get; set; }
+        public POPSContext(DbContextOptions<POPSContext> contextOptions)
+            :base(contextOptions)
+        {
+
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -34,8 +39,10 @@ namespace POPSAPI.Model
                         new { pod.PuchaseOrderNumber, pod.ItemNumber })
                         .HasName("pod_primary_key");
             modelBuilder.Entity<PoDetail>()
-                        .HasOne(pod => pod.PurchaseOrderMaster)
-                        .WithMany(pom => pom.Details);
+                        .HasOne<PoMaster>()
+                        .WithMany(pom => pom.Details)
+                        .HasForeignKey(pod => pod.PuchaseOrderNumber);
+
             modelBuilder.Entity<PoDetail>()
                         .HasOne<Item>()
                         .WithMany()
