@@ -10,8 +10,8 @@ namespace POPSAPI.Repository
     {
         Task<bool> AddPo(PoMaster poMaster);
         Task<PoMaster> EditPo(PoMaster poMaster);
-        Task<bool> DeletePo(string Pono, string itemCode);
-        Task<PoMaster> GetPoMaster(string Pono, string itemCode);
+        Task<bool> DeletePo(string Pono);
+        Task<PoMaster> GetPoMaster(string Pono);
         Task<List<PoMaster>> GetAllPos();
     }
 }
