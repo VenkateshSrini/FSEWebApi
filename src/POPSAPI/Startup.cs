@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using POPSAPI.Model;
 using POPSAPI.Repository;
+using AutoMapper;
 
 namespace POPSAPI
 {
@@ -33,6 +34,7 @@ namespace POPSAPI
             services.AddScoped<ISupplierRepo, SupplierRepo>();
             services.AddScoped<IItemRepo, ItemRepo>();
             services.AddScoped<IPORepo, PoRepo>();
+            services.AddAutoMapper(typeof(Startup));
           
         }
 

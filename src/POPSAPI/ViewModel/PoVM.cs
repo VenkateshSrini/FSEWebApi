@@ -14,5 +14,7 @@ namespace POPSAPI.ViewModel
         [Required]
         [StringLength(4, ErrorMessage ="Maximum length for supplier no. exceeded")]
         public string SupplierNumber { get; set; }
+        [StringLength(4, ErrorMessage ="PO number maximum length exceeded")]
+        public string ID { get; set; }
     }
 }
