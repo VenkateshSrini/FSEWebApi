@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using POPSAPI.Model;
+using POPSAPI.Repository;
 
 namespace POPSAPI
 {
@@ -29,6 +30,10 @@ namespace POPSAPI
             services.AddControllers();
             services.AddDbContext<POPSContext>(options =>
             options.UseNpgsql(Configuration.GetConnectionString("POPSConnection")));
+            services.AddScoped<ISupplierRepo, SupplierRepo>();
+            services.AddScoped<IItemRepo, ItemRepo>();
+            services.AddScoped<IPORepo, PoRepo>();
+          
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
