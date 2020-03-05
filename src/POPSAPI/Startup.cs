@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using POPSAPI.Model;
 using POPSAPI.Repository;
 using AutoMapper;
+using POPSAPI.Services;
 
 namespace POPSAPI
 {
@@ -35,6 +36,9 @@ namespace POPSAPI
             services.AddScoped<IItemRepo, ItemRepo>();
             services.AddScoped<IPORepo, PoRepo>();
             services.AddAutoMapper(typeof(Startup));
+            services.AddScoped<ISupplierService, SupplierService>();
+            services.AddScoped<IItemService, ItemService>();
+            services.AddScoped<IPoService, PoService>();
           
         }
 

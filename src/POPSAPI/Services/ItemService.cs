@@ -37,7 +37,7 @@ namespace POPSAPI.Services
         public async Task<bool> Edit(ItemVM item)
         {
             Item dbItem = mapper.Map<Item>(item);
-            return (((await itemRepo.EditItem(dbItem)) == null) ? true : false);
+            return (((await itemRepo.EditItem(dbItem)) != null) ? true : false);
 
         }
 

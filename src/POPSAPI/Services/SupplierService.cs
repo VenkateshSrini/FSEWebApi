@@ -37,7 +37,7 @@ namespace POPSAPI.Services
         public async Task<bool> Edit(SupplierVM supplierVM)
         {
             Supplier supplier = mapper.Map<Supplier>(supplierVM);
-            return ((await supplierRepo.UpdateSupplier(supplier)) == null) ?
+            return ((await supplierRepo.UpdateSupplier(supplier)) != null) ?
                 true : false;
 
         }
