@@ -44,6 +44,8 @@ namespace POPSAPI
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
+                c.EnableAnnotations();
+                //c.OperationFilter<TagByApiExplorerSettingsOperationFilter>();
             });
             services.AddScoped<ISupplierRepo, SupplierRepo>();
             services.AddScoped<IItemRepo, ItemRepo>();

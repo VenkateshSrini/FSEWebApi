@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -8,11 +9,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using POPSAPI.Services;
 using POPSAPI.ViewModel;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace POPSAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [SwaggerTag("Purchase order")]
     public class PoController : ControllerBase
     {
         private IMapper mapper;

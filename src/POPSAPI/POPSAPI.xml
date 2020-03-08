@@ -32,7 +32,7 @@
         </member>
         <member name="M:POPSAPI.Controllers.ItemController.Delete(System.String)">
             <summary>
-            Deletes the item. DELETE: api/ApiWithActions/5
+            Deletes the item. 
             </summary>
             <param name="id">Item id</param>
         </member>
@@ -81,7 +81,7 @@
             Get those supplier that match the id. The is is provided as path parameter. example
             api/Supplier/5
             </summary>
-            <param name="id">SUpplier id</param>
+            <param name="id">Supplier id</param>
             <returns>Supplier object or error status</returns>
         </member>
         <member name="M:POPSAPI.Controllers.SupplierController.Post(POPSAPI.ViewModel.SupplierVM)">
