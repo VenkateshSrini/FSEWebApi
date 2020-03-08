@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>POPSAPI</name>
+    </assembly>
+    <members>
+        <member name="M:POPSAPI.Controllers.ItemController.Get">
+            <summary>
+            Get all the items from DB
+            </summary>
+            <returns>List of Items</returns>
+        </member>
+        <member name="M:POPSAPI.Controllers.ItemController.Get(System.String)">
+            <summary>
+            Get items based on Id
+            </summary>
+            <param name="ItemId"></param>
+            <returns>return View model that meets id</returns>
+        </member>
+        <member name="M:POPSAPI.Controllers.ItemController.Post(POPSAPI.ViewModel.ItemVM)">
+            <summary>
+            creates a Items 
+            </summary>
+            <param name="itemVM">Item view model</param>
+            <returns>success state</returns>
+        </member>
+        <member name="M:POPSAPI.Controllers.ItemController.Put(POPSAPI.ViewModel.ItemVM)">
+            <summary>
+            Updates the item. Id is mandatory
+            </summary>
+            <param name="itemVM">item view model</param>
+        </member>
+        <member name="M:POPSAPI.Controllers.ItemController.Delete(System.String)">
+            <summary>
+            Deletes the item. DELETE: api/ApiWithActions/5
+            </summary>
+            <param name="id">Item id</param>
+        </member>
+        <member name="M:POPSAPI.Controllers.PoController.Get">
+            <summary>
+            Get All the purchase order
+            </summary>
+            <returns>Lsit of Purchase order view model</returns>
+        </member>
+        <member name="M:POPSAPI.Controllers.PoController.Get(System.String)">
+            <summary>
+            Get the PO id by
+            </summary>
+            <param name="poId">Id of purchase order</param>
+            <returns>Return purchase ordervm</returns>
+        </member>
+        <member name="M:POPSAPI.Controllers.PoController.Post(POPSAPI.ViewModel.PoVM)">
+            <summary>
+            Creates po
+            </summary>
+            <param name="poVm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:POPSAPI.Controllers.PoController.Put(POPSAPI.ViewModel.PoVM)">
+            <summary>
+            Update purchase order.
+            </summary>
+            <param name="poVm">Viw model to be updated</param>
+            <returns></returns>
+        </member>
+        <member name="M:POPSAPI.Controllers.PoController.Delete(System.String)">
+            <summary>
+            Deletes the PoID
+            </summary>
+            <param name="poID">purchase order Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:POPSAPI.Controllers.SupplierController.Get">
+            <summary>
+            Gets all the suppliers. 
+            </summary>
+            <returns>List of supplier</returns>
+        </member>
+        <member name="M:POPSAPI.Controllers.SupplierController.Get(System.String)">
+            <summary>
+            Get those supplier that match the id. The is is provided as path parameter. example
+            api/Supplier/5
+            </summary>
+            <param name="id">SUpplier id</param>
+            <returns>Supplier object or error status</returns>
+        </member>
+        <member name="M:POPSAPI.Controllers.SupplierController.Post(POPSAPI.ViewModel.SupplierVM)">
+            <summary>
+            Creates a supplier
+            </summary>
+            <param name="supplierVM">View model of the supplier</param>
+            <returns>state signalling whether the object was created</returns>
+        </member>
+        <member name="M:POPSAPI.Controllers.SupplierController.Put(POPSAPI.ViewModel.SupplierVM)">
+            <summary>
+            Updates the supplier. The supplier id is mandatory.
+            </summary>
+            <param name="supplierVM">Supplier view model</param>
+            <returns>status of update</returns>
+        </member>
+        <member name="M:POPSAPI.Controllers.SupplierController.Delete(System.String)">
+            <summary>
+            Deletes the provided supplier
+            </summary>
+            <param name="id">Supplier id</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
