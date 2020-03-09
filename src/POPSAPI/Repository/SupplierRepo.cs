@@ -21,13 +21,13 @@ namespace POPSAPI.Repository
         {
             long nextMax = 0;
             var connection = dbContext.Database.GetDbConnection();
-            
-                if (connection.State == System.Data.ConnectionState.Closed)
-                    connection.Open();
-                var command = connection.CreateCommand();
-                command.CommandText = "SELECT nextval('Supplierserial');";
-                nextMax = (long)command.ExecuteScalar();
-            
+
+            if (connection.State == System.Data.ConnectionState.Closed)
+                connection.Open();
+            var command = connection.CreateCommand();
+            command.CommandText = "SELECT nextval('Supplierserial');";
+            nextMax = (long)command.ExecuteScalar();
+
             supplier.SupplierNumber = $"S{nextMax}";
             await dbContext.Suppliers.AddAsync(supplier);
             var recordsAffected = await dbContext.SaveChangesAsync();

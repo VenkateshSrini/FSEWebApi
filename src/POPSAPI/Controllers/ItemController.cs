@@ -42,7 +42,7 @@ namespace POPSAPI.Controllers
         /// </summary>
         /// <param name="ItemId"></param>
         /// <returns>return View model that meets id</returns>
-        [HttpGet("{id}")]
+        [HttpGet("{ItemId}")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -84,7 +84,7 @@ namespace POPSAPI.Controllers
             }
             var result = await itemService.Add(itemVM);
             if (result)
-                return Ok(result);
+                return Created($"api/Item/{itemVM.ID}", result);
             else
                 return StatusCode(500, "Unable to process request");
         }
