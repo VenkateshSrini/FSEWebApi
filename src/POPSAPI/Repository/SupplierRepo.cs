@@ -3,12 +3,11 @@ using Microsoft.Extensions.Logging;
 using POPSAPI.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace POPSAPI.Repository
 {
-    public class SupplierRepo:ISupplierRepo
+    public class SupplierRepo : ISupplierRepo
     {
         private POPSContext dbContext;
         private readonly ILogger<SupplierRepo> logger;
@@ -20,24 +19,26 @@ namespace POPSAPI.Repository
 
         public async Task<bool> AddSupplier(Supplier supplier)
         {
-            int nextMax = 0;
-            using(var connection = dbContext.Database.GetDbConnection())
-            {
+            long nextMax = 0;
+            var connection = dbContext.Database.GetDbConnection();
+            
+                if (connection.State == System.Data.ConnectionState.Closed)
+                    connection.Open();
                 var command = connection.CreateCommand();
                 command.CommandText = "SELECT nextval('Supplierserial');";
-                nextMax = (int)command.ExecuteScalar();
-            }
+                nextMax = (long)command.ExecuteScalar();
+            
             supplier.SupplierNumber = $"S{nextMax}";
             await dbContext.Suppliers.AddAsync(supplier);
             var recordsAffected = await dbContext.SaveChangesAsync();
-            return (recordsAffected>0)?  true:false;
+            return (recordsAffected > 0) ? true : false;
         }
 
         public async Task<Supplier> UpdateSupplier(Supplier supplier)
         {
             dbContext.Suppliers.Update(supplier);
             var recordsAffected = await dbContext.SaveChangesAsync();
-            return (recordsAffected > 0)? supplier: null;
+            return (recordsAffected > 0) ? supplier : null;
 
         }
 

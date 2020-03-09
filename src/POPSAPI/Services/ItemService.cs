@@ -3,14 +3,12 @@ using Microsoft.Extensions.Logging;
 using POPSAPI.Model;
 using POPSAPI.Repository;
 using POPSAPI.ViewModel;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace POPSAPI.Services
 {
-    public class ItemService:IItemService
+    public class ItemService : IItemService
     {
         IMapper mapper;
         IItemRepo itemRepo;

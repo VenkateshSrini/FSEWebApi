@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace POPSAPI.ViewModel
 {
     public class ItemVM
     {
-        [StringLength(4, ErrorMessage ="Max length for Item Id exceeded")]
+        [StringLength(4, ErrorMessage = "Max length for Item Id exceeded")]
         public string ID { get; set; }
         [Required]
-        [StringLength(15,ErrorMessage = "Maximum length for Item description exceeded")]
+        [StringLength(15, ErrorMessage = "Maximum length for Item description exceeded")]
         public string Description { get; set; }
         [Required]
         public double Rate { get; set; }

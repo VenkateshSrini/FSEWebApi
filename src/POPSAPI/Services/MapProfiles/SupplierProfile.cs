@@ -1,14 +1,10 @@
 ﻿using AutoMapper;
 using POPSAPI.Model;
 using POPSAPI.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace POPSAPI.Services.MapProfiles
 {
-    public class SupplierProfile:Profile
+    public class SupplierProfile : Profile
     {
         public SupplierProfile()
         {

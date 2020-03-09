@@ -3,14 +3,12 @@ using Microsoft.Extensions.Logging;
 using POPSAPI.Model;
 using POPSAPI.Repository;
 using POPSAPI.ViewModel;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace POPSAPI.Services
 {
-    public class PoService:IPoService
+    public class PoService : IPoService
     {
         private IMapper mapper;
         private IPORepo poRepo;
@@ -31,7 +29,7 @@ namespace POPSAPI.Services
         public async Task<bool> Edit(PoVM povm)
         {
             PoMaster poMaster = mapper.Map<PoMaster>(povm);
-            return ((await poRepo.EditPo(poMaster)!=null) ? true : false);
+            return ((await poRepo.EditPo(poMaster) != null) ? true : false);
         }
 
         public async Task<bool> Delete(string poID)

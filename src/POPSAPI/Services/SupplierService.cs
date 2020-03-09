@@ -3,14 +3,12 @@ using Microsoft.Extensions.Logging;
 using POPSAPI.Model;
 using POPSAPI.Repository;
 using POPSAPI.ViewModel;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace POPSAPI.Services
 {
-    public class SupplierService:ISupplierService
+    public class SupplierService : ISupplierService
     {
         private readonly IMapper mapper;
         private readonly ISupplierRepo supplierRepo;

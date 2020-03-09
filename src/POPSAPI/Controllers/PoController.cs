@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using POPSAPI.Services;
 using POPSAPI.ViewModel;
 using Swashbuckle.AspNetCore.Annotations;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace POPSAPI.Controllers
 {
@@ -55,7 +52,7 @@ namespace POPSAPI.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<PoVM>> Get(string  poId)
+        public async Task<ActionResult<PoVM>> Get(string poId)
         {
             if (string.IsNullOrWhiteSpace(poId))
             {
@@ -67,7 +64,7 @@ namespace POPSAPI.Controllers
                 return Ok(poVM);
             else
                 return NotFound("VM result not found");
-                
+
         }
 
         // POST: api/Po
@@ -82,7 +79,7 @@ namespace POPSAPI.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         public async Task<ActionResult<bool>> Post(PoVM poVm)
         {
-            if (poVm==null)
+            if (poVm == null)
             {
                 ModelState.AddModelError("POMOdelEmpty", "Po model is empty");
                 return BadRequest(ModelState);
@@ -137,7 +134,7 @@ namespace POPSAPI.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<bool>> Delete(string  poID)
+        public async Task<ActionResult<bool>> Delete(string poID)
         {
             if (string.IsNullOrEmpty(poID))
             {

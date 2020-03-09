@@ -1,22 +1,17 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 using POPSAPI.Model;
 using POPSAPI.Repository;
-using AutoMapper;
 using POPSAPI.Services;
-using Microsoft.OpenApi.Models;
-using System.Reflection;
+using System;
 using System.IO;
+using System.Reflection;
 
 namespace POPSAPI
 {
@@ -38,9 +33,11 @@ namespace POPSAPI
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { 
-                    Title = "POPS API", 
-                    Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "POPS API",
+                    Version = "v1"
+                });
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
@@ -54,7 +51,7 @@ namespace POPSAPI
             services.AddScoped<ISupplierService, SupplierService>();
             services.AddScoped<IItemService, ItemService>();
             services.AddScoped<IPoService, PoService>();
-          
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

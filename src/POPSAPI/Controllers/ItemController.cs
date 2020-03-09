@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using POPSAPI.Services;
 using POPSAPI.ViewModel;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace POPSAPI.Controllers
 {
@@ -96,14 +94,14 @@ namespace POPSAPI.Controllers
         /// Updates the item. Id is mandatory
         /// </summary>
         /// <param name="itemVM">item view model</param>
-        
+
         [HttpPut]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(StatusCodes.Status202Accepted)]
         public async Task<ActionResult<bool>> Put(ItemVM itemVM)
         {
-            if(itemVM == null)
+            if (itemVM == null)
             {
                 ModelState.AddModelError("paramEmpty", "Request cannot be empty");
                 return BadRequest(ModelState);

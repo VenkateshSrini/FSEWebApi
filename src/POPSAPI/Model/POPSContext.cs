@@ -1,19 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace POPSAPI.Model
 {
-    public class POPSContext:DbContext
+    public class POPSContext : DbContext
     {
         public DbSet<Item> Items { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<PoMaster> PoMasters { get; set; }
         public DbSet<PoDetail> PoDetails { get; set; }
         public POPSContext(DbContextOptions<POPSContext> contextOptions)
-            :base(contextOptions)
+            : base(contextOptions)
         {
 
         }
@@ -26,7 +22,7 @@ namespace POPSAPI.Model
             modelBuilder.Entity<Supplier>()
                 .HasKey(suppl => suppl.SupplierNumber)
                 .HasName("suppl_primary_key");
-            
+
             modelBuilder.Entity<PoMaster>()
                         .HasKey(pom => pom.PoNumber)
                         .HasName("pom_primary_key");

@@ -3,12 +3,11 @@ using Microsoft.Extensions.Logging;
 using POPSAPI.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace POPSAPI.Repository
 {
-    public class ItemRepo:IItemRepo
+    public class ItemRepo : IItemRepo
     {
         private POPSContext dbContext;
         private readonly ILogger<ItemRepo> logger;
@@ -20,13 +19,15 @@ namespace POPSAPI.Repository
 
         public async Task<bool> AddItem(Item item)
         {
-            int nextMax = 0;
-            using (var connection = dbContext.Database.GetDbConnection())
-            {
+            long nextMax = 0;
+            var connection = dbContext.Database.GetDbConnection();
+            
+                if (connection.State == System.Data.ConnectionState.Closed)
+                    connection.Open();
                 var command = connection.CreateCommand();
                 command.CommandText = "SELECT nextval('Itemserial');";
-                nextMax = (int)command.ExecuteScalar();
-            }
+                nextMax = (long)command.ExecuteScalar();
+            
             item.ItemCode = $"I{nextMax}";
             await dbContext.Items.AddAsync(item);
             var recordsAffected = await dbContext.SaveChangesAsync();
@@ -38,7 +39,7 @@ namespace POPSAPI.Repository
         {
             dbContext.Items.Update(item);
             var recordsAffected = await dbContext.SaveChangesAsync();
-            return (recordsAffected >0) ? item : null;
+            return (recordsAffected > 0) ? item : null;
         }
 
         public async Task<bool> DeleteItem(string itemId)
@@ -49,7 +50,7 @@ namespace POPSAPI.Repository
             dbContext.Items.Remove(delItem);
             var recordsAffected = await dbContext.SaveChangesAsync();
             return (recordsAffected > 0) ? true : false;
-            
+
         }
 
         public async Task<Item> GetItemById(string itemId)

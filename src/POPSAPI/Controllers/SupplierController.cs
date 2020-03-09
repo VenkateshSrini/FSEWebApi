@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using POPSAPI.Services;
 using POPSAPI.ViewModel;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace POPSAPI.Controllers
 {
@@ -31,10 +29,10 @@ namespace POPSAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<List<SupplierVM>>> Get()
         {
-            var suppliers= await supplierService.GetAllSupplier();
+            var suppliers = await supplierService.GetAllSupplier();
             if ((suppliers != null) && (suppliers.Count > 0)) return Ok(suppliers);
             return NotFound("No suppliers found");
-                    
+
         }
 
         // GET: api/Supplier/5
@@ -55,8 +53,8 @@ namespace POPSAPI.Controllers
                 ModelState.AddModelError("paramEmpty", "ID cannot be empty");
                 return BadRequest(ModelState);
             }
-            var supplier= await supplierService.GetSupplierById(id);
-            if (supplier==null)
+            var supplier = await supplierService.GetSupplierById(id);
+            if (supplier == null)
             {
                 ModelState.AddModelError("paramEmpty", "ID cannot be empty");
                 return NotFound(ModelState);
@@ -76,7 +74,7 @@ namespace POPSAPI.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         public async Task<ActionResult<bool>> Post(SupplierVM supplierVM)
         {
-            if (supplierVM==null)
+            if (supplierVM == null)
             {
                 ModelState.AddModelError("paramEmpty", "Request cannot be empty");
                 return BadRequest(ModelState);
@@ -86,10 +84,10 @@ namespace POPSAPI.Controllers
                 return BadRequest(ModelState);
             }
             var result = await supplierService.Add(supplierVM);
-            if (result==false)
+            if (result == false)
             {
-               
-                
+
+
                 return StatusCode(500, "Request could not be processed");
             }
             return Created($"api/supplier/{supplierVM.ID}", result);
@@ -143,7 +141,7 @@ namespace POPSAPI.Controllers
                 return BadRequest(ModelState);
             }
             var result = await supplierService.Delete(id);
-            return (result)? Ok(result): StatusCode(500, "Request could not be processed"); 
+            return (result) ? Ok(result) : StatusCode(500, "Request could not be processed");
         }
     }
 }
