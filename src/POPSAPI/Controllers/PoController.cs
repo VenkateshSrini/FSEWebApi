@@ -48,7 +48,7 @@ namespace POPSAPI.Controllers
         /// </summary>
         /// <param name="poId">Id of purchase order</param>
         /// <returns>Return purchase ordervm</returns>
-        [HttpGet("{id}")]
+        [HttpGet("{poId}")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -130,7 +130,7 @@ namespace POPSAPI.Controllers
         /// </summary>
         /// <param name="poID">purchase order Id</param>
         /// <returns></returns>
-        [HttpDelete("{id}")]
+        [HttpDelete("{poID}")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(StatusCodes.Status200OK)]

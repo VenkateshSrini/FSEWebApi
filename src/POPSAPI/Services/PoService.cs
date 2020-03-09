@@ -29,6 +29,11 @@ namespace POPSAPI.Services
         public async Task<bool> Edit(PoVM povm)
         {
             PoMaster poMaster = mapper.Map<PoMaster>(povm);
+            foreach(var detail in poMaster.Details)
+            {
+                detail.PuchaseOrderNumber = poMaster.PoNumber;
+                detail.PurchaseOrderMaster = poMaster;
+            }
             return ((await poRepo.EditPo(poMaster) != null) ? true : false);
         }
 

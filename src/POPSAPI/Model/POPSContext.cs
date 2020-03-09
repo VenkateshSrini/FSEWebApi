@@ -35,10 +35,10 @@ namespace POPSAPI.Model
                         .HasKey(pod =>
                         new { pod.PuchaseOrderNumber, pod.ItemNumber })
                         .HasName("pod_primary_key");
-            modelBuilder.Entity<PoDetail>()
-                        .HasOne<PoMaster>()
-                        .WithMany(pom => pom.Details)
-                        .HasForeignKey(pod => pod.PuchaseOrderNumber);
+            //modelBuilder.Entity<PoDetail>()
+            //            .HasOne<PoMaster>()
+            //            .WithMany(pom => pom.Details)
+            //            .HasForeignKey(pod => pod.PuchaseOrderNumber);
 
             modelBuilder.Entity<PoDetail>()
                         .HasOne<Item>()

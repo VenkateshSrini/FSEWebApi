@@ -1,9 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-using System;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace POPSAPI.Migrations
 {
-    public partial class IntialCreate : Migration
+    public partial class InitialUpdate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -26,7 +26,7 @@ namespace POPSAPI.Migrations
                 {
                     SUPLNO = table.Column<string>(type: "CHAR(4)", nullable: false),
                     SUPLNAME = table.Column<string>(type: "VARCHAR(15)", nullable: false),
-                    SUPLADDR = table.Column<string>(type: "VARCHAR(15)", nullable: true)
+                    SUPLADDR = table.Column<string>(type: "VARCHAR(40)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -58,8 +58,7 @@ namespace POPSAPI.Migrations
                 {
                     PONO = table.Column<string>(type: "Char(4)", nullable: false),
                     ITCODE = table.Column<string>(type: "CHAR(4)", nullable: false),
-                    QTY = table.Column<int>(type: "integer", nullable: false),
-                    PurchaseOrderMasterPoNumber = table.Column<string>(nullable: true)
+                    QTY = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -71,22 +70,17 @@ namespace POPSAPI.Migrations
                         principalColumn: "ITCODE",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_PoDetails_PoMasters_PurchaseOrderMasterPoNumber",
-                        column: x => x.PurchaseOrderMasterPoNumber,
+                        name: "FK_PoDetails_PoMasters_PONO",
+                        column: x => x.PONO,
                         principalTable: "PoMasters",
                         principalColumn: "PONO",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_PoDetails_ITCODE",
                 table: "PoDetails",
                 column: "ITCODE");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_PoDetails_PurchaseOrderMasterPoNumber",
-                table: "PoDetails",
-                column: "PurchaseOrderMasterPoNumber");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PoMasters_SUPLNO",

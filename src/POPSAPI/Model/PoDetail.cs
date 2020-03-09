@@ -13,6 +13,7 @@ namespace POPSAPI.Model
         public string ItemNumber { get; set; }
         [Column("QTY", TypeName = "integer")]
         public int Quantity { get; set; }
+        [ForeignKey("PuchaseOrderNumber")]
         public PoMaster PurchaseOrderMaster { get; set; }
     }
 }

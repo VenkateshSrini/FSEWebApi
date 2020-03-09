@@ -50,9 +50,6 @@ namespace POPSAPI.Migrations
                         .HasColumnName("ITCODE")
                         .HasColumnType("CHAR(4)");
 
-                    b.Property<string>("PurchaseOrderMasterPoNumber")
-                        .HasColumnType("CHAR(4)");
-
                     b.Property<int>("Quantity")
                         .HasColumnName("QTY")
                         .HasColumnType("integer");
@@ -61,8 +58,6 @@ namespace POPSAPI.Migrations
                         .HasName("pod_primary_key");
 
                     b.HasIndex("ItemNumber");
-
-                    b.HasIndex("PurchaseOrderMasterPoNumber");
 
                     b.ToTable("PoDetails");
                 });
@@ -119,15 +114,11 @@ namespace POPSAPI.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("POPSAPI.Model.PoMaster", null)
-                        .WithMany()
+                    b.HasOne("POPSAPI.Model.PoMaster", "PurchaseOrderMaster")
+                        .WithMany("Details")
                         .HasForeignKey("PuchaseOrderNumber")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("POPSAPI.Model.PoMaster", "PurchaseOrderMaster")
-                        .WithMany("Details")
-                        .HasForeignKey("PurchaseOrderMasterPoNumber");
                 });
 
             modelBuilder.Entity("POPSAPI.Model.PoMaster", b =>
